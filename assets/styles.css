@@ -1,0 +1,23 @@
+.logo-container {
+  position: fixed !important;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  /*background-color: blue;*/
+  z-index: 1099;
+  text-align: center;
+  pointer-events: none
+}
+
+.logo {
+  width: 200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+img.logo {
+  height: 100%;
+  width: auto;
+
+}
