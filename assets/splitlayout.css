@@ -208,7 +208,7 @@ h1.black {
 
 .page-left {
 	left: 0;
-	background: #EAE6E5;
+	background: #fff;
 	color: black;
 	text-align: right;
 	-webkit-transform: translateX(-100%);
@@ -217,7 +217,7 @@ h1.black {
 
 /* Page left background */
 .splitlayout.open-left {
-	background: #EAE6E5;
+	background: #fff;
 }
 
 /* Inner page content */

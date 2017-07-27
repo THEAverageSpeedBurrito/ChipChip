@@ -47,7 +47,7 @@
 			reset();
 			console.log('triggering left side');
 			$mainLogo.fadeOut(200)
-			$('body').css('background', '#EAE6E5')
+			$('body').css('background', '#fff')
 
 			classie.add( splitlayout, 'open-left' );
 		} );
