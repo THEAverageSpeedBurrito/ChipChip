@@ -195,27 +195,29 @@ h1.black {
 
 .page-right {
 	left: 25%;
-	background: #34495e;
+	background: #04080F;
 	color: #97a8b2;
 	-webkit-transform: translateX(100%);
 	transform: translateX(100%);
 }
 
+/*  Page right background */
 .splitlayout.open-right {
-	background: #34495e;
+	background: #04080F;
 }
 
 .page-left {
 	left: 0;
-	background: #34495e;
-	color: #fff;
+	background: #EAE6E5;
+	color: black;
 	text-align: right;
 	-webkit-transform: translateX(-100%);
 	transform: translateX(-100%);
 }
 
+/* Page left background */
 .splitlayout.open-left {
-	background: #34495e;
+	background: #EAE6E5;
 }
 
 /* Inner page content */

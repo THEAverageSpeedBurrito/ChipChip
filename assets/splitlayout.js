@@ -47,6 +47,7 @@
 			reset();
 			console.log('triggering left side');
 			$mainLogo.fadeOut(200)
+			$('body').css('background', '#EAE6E5')
 
 			classie.add( splitlayout, 'open-left' );
 		} );
@@ -55,6 +56,7 @@
 			reset();
 			console.log('triggering right side');
 			$mainLogo.fadeOut(200)
+			$('body').css('background', '#04080F')
 
 			classie.add( splitlayout, 'open-right' );
 		} );
