@@ -20,10 +20,7 @@ h1 {
 h1.black {
 	color: #04080F;
 }
-h1:hover {
-	/*color: #BF0303;*/
-	transform: scale(1.09);
-}
+
 
 .splitlayout {
 	position: relative;
@@ -224,7 +221,10 @@ h1:hover {
 
 /* Inner page content */
 .page-inner {
-	padding: 2em;
+	padding: 10px 2em 0 0;
+}
+.page-inner.right {
+	padding: 10px 10px 0 2em;
 }
 
 .page-inner section {

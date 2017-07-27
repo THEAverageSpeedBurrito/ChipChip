@@ -10,6 +10,8 @@
  */
 (function() {
 
+	$mainLogo = $('#mainLogo')
+
 	'use strict';
 
 	// http://stackoverflow.com/a/11381730/989439
@@ -43,11 +45,17 @@
 
 		leftSide.querySelector( 'div.intro-content' ).addEventListener( eventtype, function( ev ) {
 			reset();
+			console.log('triggering left side');
+			$mainLogo.fadeOut(200)
+
 			classie.add( splitlayout, 'open-left' );
 		} );
 
 		rightSide.querySelector( 'div.intro-content' ).addEventListener( eventtype, function( ev ) {
 			reset();
+			console.log('triggering right side');
+			$mainLogo.fadeOut(200)
+
 			classie.add( splitlayout, 'open-right' );
 		} );
 
@@ -61,6 +69,9 @@
 			backToIntro = function( ev ) {
 				ev.preventDefault();
 				ev.stopPropagation();
+
+				$mainLogo.fadeIn(200)
+
 				var dir = classie.has( ev.target, 'back-right' ) ? 'left' : 'right',
 					page = dir === 'right' ? pageRight : pageLeft;
 				classie.remove( splitlayout, 'open-' + dir );
