@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300, 400');
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+
+/* main html styles */
+
+hr {
+  width: 200px;
+}
+
+/* All other styles */
+
 .logo-container {
   position: fixed !important;
   top: 50px;
@@ -31,13 +42,49 @@ img.main-logo {
 .section-header {
   width: 100%;
   height: 100px;
-  text-align: left;
-}
-.section-header.right {
-  text-align: right;
+  text-align: center;
 }
 
 .section-header > .logo {
   height: 100px;
   width: 100px;
+}
+
+/* Merch section styles */
+
+.merch-container {
+  widht: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  /*border: 1px solid white;*/
+  box-sizing: border-box;
+  padding: 15px;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+.merch-container > .desc {
+  flex-basis: 100%;
+  /*height: 100px;*/
+  text-align: left;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.merch-list {
+  flex-basis: 100%;
+  height: auto;
+  /*border: 1px solid white;*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.merch-item {
+  flex-basis: 200px;
+  height: 300px;
+  margin: 20px;
+  border: 1px solid white;
+  box-sizing: border-box;
 }
