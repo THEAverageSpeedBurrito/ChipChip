@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300, 400');
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+
 /* Main style overwrites */
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -6,7 +14,110 @@ html, body {
   padding: 0;
 }
 
+hr {
+  border: none;
+  background: #EAE6E5;
+  height: 2px;
+}
+
+button {
+  display: block;
+  min-width: 75px;
+  width: calc(50% - 5px);
+  height: 25px;
+  outline: none;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 10px;
+  background: ghostwhite;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  transition: 0.2s;
+  pointer-events: all;
+  cursor: pointer;
+}
+
 /* Purchase page main styles */
 .wrapper {
+  width: 100%;
+  height: 500px;
+  max-width: 600px;
+  margin: 20px auto;
+}
 
+.logo-container {
+  width: 100%;
+  height: 100px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+img.logo {
+  height: 100%;
+  width: auto;
+}
+
+.inline {
+  display: inline;
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
+}
+
+
+/* item in question styles */
+.preview-container {
+  width: 100%;
+  height: 300px;
+  /*border: 2px solid #EAE6E5;*/
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+#thumbnail {
+  height: 100%;
+  flex-basis: 2;
+  margin-right: 10px;
+}
+
+.info-container {
+  height: 100%;
+  width: 100%;
+  /*border: 1px solid blue;*/
+}
+
+.shirt-title {
+  display: block;
+  width: 100%;
+  height: auto;
+  /*border: 1px solid black;*/
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.size {
+  height: auto;
+  flex-grow: 1;
+  /*border: 2px solid #EAE6E5;*/
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.size-button {
+  flex-basis: 100%;
+  height: 90px;
+  background-color: transparent;
+  border: 2px solid #BF0303;
+  border-radius: 5px;
+  color: #BF0303;
+  font-size: 1em;
+}
+
+.active {
+  color: white;
+  background-color: #BF0303;
 }
