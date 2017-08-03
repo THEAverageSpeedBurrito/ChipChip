@@ -5,6 +5,7 @@
 
   $('.size-button').on('click', function() {
     $('.size-button').removeClass('active')
+
     $(event.target).toggleClass('active')
   })
 

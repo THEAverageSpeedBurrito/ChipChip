@@ -19,5 +19,14 @@ $('.purchase').click(function (e) {
   event.preventDefault();
 
   var shirtID = $(event.target).parents('div')[0].id;
+  var shirtName = event.target.value
+  console.log(shirtName);
+
+  var href = `file:///Users/evanbusse/Desktop/ChipChip/purchase.html?shirtid=${shirtName}`
+
+  // page fade out effect
+  $('body').fadeOut(350, function () {
+    window.location.href = href;
+  })
 
 })
