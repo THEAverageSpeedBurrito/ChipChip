@@ -11,6 +11,7 @@
 (function() {
 
 	$mainLogo = $('#mainLogo')
+	$actionBar = $('#action-bar')
 
 	'use strict';
 
@@ -45,15 +46,23 @@
 
 		leftSide.querySelector( 'div.intro-content' ).addEventListener( eventtype, function( ev ) {
 			reset();
+
+			// Left side actions
+
 			console.log('triggering left side');
 			$mainLogo.fadeOut(200)
 			$('body').css('background', '#fff')
+			// transition in action bar
+			$actionBar.show(200)
 
 			classie.add( splitlayout, 'open-left' );
 		} );
 
 		rightSide.querySelector( 'div.intro-content' ).addEventListener( eventtype, function( ev ) {
 			reset();
+
+			// Right side actions
+
 			console.log('triggering right side');
 			$mainLogo.fadeOut(200)
 			$('body').css('background', '#04080F')
@@ -72,6 +81,9 @@
 				ev.preventDefault();
 				ev.stopPropagation();
 
+				// transition back to main page
+
+				$actionBar.hide(200)
 				$mainLogo.fadeIn(200)
 
 				var dir = classie.has( ev.target, 'back-right' ) ? 'left' : 'right',

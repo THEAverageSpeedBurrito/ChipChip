@@ -22,7 +22,7 @@ $('.purchase').click(function (e) {
   var shirtName = event.target.value
   console.log(shirtName);
 
-  var href = `file:///Users/evanbusse/Desktop/ChipChip/purchase.html?shirtid=${shirtName}`
+  var href = `./purchase.html?shirtid=${shirtName}`
 
   // page fade out effect
   $('body').fadeOut(350, function () {

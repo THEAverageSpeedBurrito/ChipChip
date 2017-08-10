@@ -186,3 +186,20 @@ button.purchase:hover {
   margin: auto;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
 }
+
+
+/* Bottom bar styles */
+
+#action-bar {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  height: 75px;
+  background: #EAE6E5;
+  box-shadow: 0 -1px 5px 0 rgba(0, 0, 0, 0.25);
+}

@@ -37,6 +37,12 @@ button {
   cursor: pointer;
 }
 
+input {
+  outline: none;
+  border-radius: 3px;
+  border: 2px solid #EAE6E5;
+}
+
 /* Purchase page main styles */
 .wrapper {
   width: 100%;
@@ -120,4 +126,21 @@ img.logo {
 .active {
   color: white;
   background-color: #BF0303;
+}
+
+.order-container {
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.input-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: none;
+}
+
+input[type=text] {
+  flex-grow: 1;
+  height: 40px;
+  margin-right: 5px;
 }
