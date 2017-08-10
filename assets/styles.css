@@ -24,6 +24,10 @@ button {
   cursor: pointer;
 }
 
+.right {
+  margin-left: auto;
+}
+
 /* All other styles */
 
 .logo-container {
@@ -198,8 +202,45 @@ button.purchase:hover {
   z-index: 1000;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 10px;
   height: 75px;
   background: #EAE6E5;
   box-shadow: 0 -1px 5px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+}
+
+.action-item {
+  height: 55px;
+  width: auto;
+  margin-right: 20px;
+  /*border: 1px solid blue;*/
+  overflow: hidden;
+}
+
+.action {
+  height: 100%;
+  width: auto;
+  display: inline;
+}
+
+img.action:hover {
+  transform: rotate(2deg);
+}
+
+#item-count {
+  font-size: 50px;
+  color: red;
+}
+
+button.checkout {
+  background-color: white;
+  border: 1px solid #BF0303;
+  color: #BF0303;
+  height: 45px;
+  width: 200px;
+}
+button.checkout:hover {
+  background-color: #BF0303;
+  color: white;
 }
