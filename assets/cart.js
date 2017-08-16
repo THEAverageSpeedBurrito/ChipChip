@@ -1,4 +1,6 @@
 (function() {
+  // fade in effect
+  $('body').hide().fadeIn(350)
 
   // Getting cart object
   var cart = JSON.parse(localStorage.getItem('cart')) || []
@@ -38,6 +40,17 @@
       localStorage.setItem('cart', JSON.stringify(cart))
     })
   }
+
+  // perform checkout operation
+  $('.checkout').on('click', function () {
+    if($('#order-info').is(':visible')){
+      // TODO: Error checking on provided information
+      // TODO: promise for payment completion
+    }else{
+      $('#order-info').fadeIn(200)
+      $(event.target).text('submit order')
+    }
+  })
 
 
 }())
