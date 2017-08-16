@@ -12,6 +12,7 @@
 
 	$mainLogo = $('#mainLogo')
 	$actionBar = $('#action-bar')
+	$actionBar.hide();
 
 	'use strict';
 
@@ -53,7 +54,7 @@
 			$mainLogo.fadeOut(200)
 			$('body').css('background', '#fff')
 			// transition in action bar
-			$actionBar.show(200)
+			// $actionBar.show(200)
 
 			classie.add( splitlayout, 'open-left' );
 		} );
@@ -83,7 +84,7 @@
 
 				// transition back to main page
 
-				$actionBar.hide(200)
+				// $actionBar.hide(200)
 				$mainLogo.fadeIn(200)
 
 				var dir = classie.has( ev.target, 'back-right' ) ? 'left' : 'right',

@@ -5,6 +5,7 @@
 
 hr {
   width: 200px;
+  margin: 50px auto;
 }
 
 button {
@@ -76,9 +77,7 @@ img.main-logo {
 .merch-container {
   width: 100%;
   margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  /*border: 1px solid white;*/
+  /*border: 1px solid black;*/
   box-sizing: border-box;
   padding: 15px;
   font-family: 'Roboto', sans-serif;
@@ -86,82 +85,53 @@ img.main-logo {
 }
 
 .merch-container .desc {
-  flex-basis: 100%;
-  /*height: 100px;*/
+  width: 100%;
   text-align: left;
   font-size: 16px;
   font-weight: 300;
   margin: 10px;
 }
 
-.merch-list {
-  flex-basis: 100%;
+#merch-list {
+  width: auto;
+  margin: 0 auto;
   height: auto;
-  /*border: 1px solid white;*/
+  /*border: 1px solid black;*/
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
 }
+
+/* merch item styles */
 
 .merch-item {
-  flex-basis: 200px;
-  margin: 10px;
-  background: transparent;
-  box-sizing: border-box;
-  text-align: left;
-  transition: 0.2s;
-  font-size: 16px;
-  border-bottom: 2px solid #EAE6E5;
+  display: flex;
+  max-width: 200px;
+  flex-wrap: wrap;
+  margin: 20px;
+  font-size: 14px;
 }
 
-.merch-item > .thumbnail {
-  width: 100%;
-  height: 200px;
-  display: block;
+.thumbnail {
+  flex-basis: 100%;
+  max-width: 200px;
+  /*border: 1px solid blue;*/
+  cursor: pointer;
 }
 
-.merch-item .name {
-  display: inline-block;
-  margin: 5px 0;
-  text-transform: capitalize;
-  font-weight: 400;
+.thumbnail > img {
+  max-width: 100%;
 }
 
-.merch-item .price {
-  display: inline-block;
-  margin: 5px 0;
-  font-weight: 400;
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  flex-basis: 100%;
+}
+
+.cost {
+  flex-basis: 100%;
   color: #BF0303;
-  float: right;
-}
-
-.merch-item .actions {
-  display: block;
-  width: 100%;
-  height: 50px;
-  /*border: 1px solid black;*/
-}
-
-button.preview {
-  background-color: white;
-  border: 1px solid #BF0303;
-  color: #BF0303;
-}
-button.preview:hover {
-  background-color: #BF0303;
-  color: white;
-}
-
-button.purchase {
-  /*float: right;*/
-  margin-right: 0px;
-  background-color: #BF0303;
-  color: white;
-}
-button.purchase:hover {
-  background-color: white;
-  color: #BF0303;
-  border: 1px solid #BF0303;
 }
 
 
