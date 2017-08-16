@@ -12,6 +12,11 @@
     }
   }
 
+  // Get or establish cart
+  var cart = JSON.parse(localStorage.getItem('cart')) || []
+  localStorage.setItem('cart', JSON.stringify(cart))
+  $('.item-count').text(cart.length)
+
   // parse url params
   var url = new URL(window.location.href)
   var shirt = url.searchParams.get('shirt')
@@ -31,10 +36,24 @@
   // add to cart
   $('.addcart').on('click', function () {
     if($('.active').length > 0){
-      console.log('true');
+      var size = $('.size-button.active').text();
+
+      var newItem = {
+        name: shirt,
+        size: size
+      }
+      addToCart(newItem)
+
     }else{
       alert('Please select a size')
     }
   })
 
+
+
+  function addToCart(item) {
+    cart.push(item)
+    localStorage.setItem('cart', JSON.stringify(cart))
+    $('.item-count').text(cart.length)
+  }
 }())
