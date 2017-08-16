@@ -40,13 +40,20 @@
 
       var newItem = {
         name: shirt,
-        size: size
+        size: size,
+        price: 20
       }
       addToCart(newItem)
-
+      $('.size-button').removeClass('active')
     }else{
       alert('Please select a size')
     }
+  })
+
+  $('.action-blob').on('click', function () {
+    $('body').fadeOut(350, function () {
+      window.location.href = './cart.html'
+    })
   })
 
 

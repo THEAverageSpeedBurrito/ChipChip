@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  border: none;
+  background: #EAE6E5;
+  height: 2px;
+}
+
+button {
+  display: block;
+  min-width: 75px;
+  width: calc(50% - 5px);
+  height: 25px;
+  outline: none;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 10px;
+  background: ghostwhite;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  transition: 0.2s;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+  border-radius: 3px;
+  border: 2px solid #EAE6E5;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  border-bottom: 1px solid black;
+}
+
+th {
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+/* Classes */
+
+.wrapper {
+  width: 100%;
+  height: 500px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.logo-container {
+  width: 100%;
+  height: 100px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+img.logo {
+  height: 100%;
+  width: auto;
+}
+
+.cart-list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  /*border: 1px solid gray;*/
+}
+
+.cart-item {
+  flex-basis: 100%;
+  height: 150px;
+  margin-bottom: 20px;
+  border: 1px solid blue;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.cart-item > img {
+  height: 100%;
+  width: auto;
+}
+
+.cart-table {
+  width: 100%;
+  /*border: 1px solid black;*/
+  font-family: 'Roboto', sans-serif;
+  margin-top: 50px;
+  text-align: left;
+}
+
+td > img {
+  width: 200px;
+  height: auto;
+}
