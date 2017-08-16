@@ -14,6 +14,7 @@
 	$actionBar = $('#action-bar')
 	$actionBar.hide();
 
+
 	'use strict';
 
 	// http://stackoverflow.com/a/11381730/989439
@@ -40,6 +41,19 @@
 
 	function init() {
     console.log('initialized');
+
+		// detect if a certain section is requested. Only works for merch side currently
+		var url = new URL(window.location.href)
+		var section = url.searchParams.get('section')
+		if(section){
+			setTimeout(function() {
+				$mainLogo.fadeOut(200)
+				$('body').css('background', '#fff')
+				classie.add( splitlayout, 'open-left' );
+			}, 300)
+
+		}
+
 		if( mobilecheck() ) {
 			classie.add( splitlayout, 'mobile-layout' );
 		}
@@ -53,8 +67,6 @@
 			console.log('triggering left side');
 			$mainLogo.fadeOut(200)
 			$('body').css('background', '#fff')
-			// transition in action bar
-			// $actionBar.show(200)
 
 			classie.add( splitlayout, 'open-left' );
 		} );
