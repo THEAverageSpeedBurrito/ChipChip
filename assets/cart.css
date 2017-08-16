@@ -58,12 +58,17 @@ table {
 }
 
 thead {
-  border-bottom: 1px solid black;
+  /*border-bottom: 1px solid black;*/
 }
 
 th {
   font-weight: 200;
   text-transform: uppercase;
+  border-bottom: 1px solid black;
+}
+
+tbody > tr {
+  /*border: 1px solid ghostwhite;*/
 }
 
 /* Classes */
@@ -122,6 +127,7 @@ img.logo {
 td > img {
   width: 200px;
   height: auto;
+  margin-top: 10px;
 }
 
 img.delete {
@@ -137,7 +143,7 @@ img.delete:hover {
   width: 100%;
   height: auto;
   border-top: 1px solid black;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

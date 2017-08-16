@@ -46,9 +46,11 @@
     if($('#order-info').is(':visible')){
       // TODO: Error checking on provided information
       // TODO: promise for payment completion
-    }else{
-      $('#order-info').fadeIn(200)
+    }else if(cart.length !== 0){
+      $('#order-info').slideDown(400)
       $(event.target).text('submit order')
+    }else{
+      alert('There are no items in your cart')
     }
   })
 
