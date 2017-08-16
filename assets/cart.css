@@ -57,7 +57,7 @@ th {
 .wrapper {
   width: 100%;
   height: 500px;
-  max-width: 600px;
+  max-width: 800px;
   margin: 20px auto;
 }
 
@@ -107,4 +107,13 @@ img.logo {
 td > img {
   width: 200px;
   height: auto;
+}
+
+img.delete {
+  width: 30px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+img.delete:hover {
+  transform: scale(1.1);
 }
