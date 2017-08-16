@@ -41,7 +41,8 @@
       var newItem = {
         name: shirt,
         size: size,
-        price: 20
+        price: 20,
+        image: shirts[shirt].img
       }
       addToCart(newItem)
       $('.size-button').removeClass('active')
