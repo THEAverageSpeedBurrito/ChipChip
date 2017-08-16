@@ -1,17 +1,19 @@
 (function() {
-  // TODO: pull cart data from localstorage, populate cart
 
   // Getting cart object
   var cart = JSON.parse(localStorage.getItem('cart')) || []
+  var totalCost = 0;
 
   // Render cart
   renderCart(cart)
 
-
   function renderCart(cartList) {
     $('#item-list').empty()
+    totalCost = 0
 
     cartList.forEach((item) => {
+      totalCost += item.price;
+
       let htmlSnippet = `
         <tr>
           <td><img src="${item.image}" alt="shirt img"></td>
@@ -24,6 +26,9 @@
       $('#item-list').append(htmlSnippet)
 
     })
+
+    $('#count').text(`${cartList.length} Item(s)`)
+    $('#total').text(`$${totalCost}`)
 
     $('.delete').on('click', function() {
       var index = event.target.getAttribute('value');
