@@ -46,6 +46,24 @@
     if($('#order-info').is(':visible')){
       // TODO: Error checking on provided information
       // TODO: promise for payment completion
+
+      var userInfo = {
+        fname: $('#fname').val(),
+        lname: $('#lname').val(),
+        email: $('#email').val()
+      }
+      var shippingInfo = {
+        address: $('#address').val(),
+        apt: $('#apt').val(),
+        city: $('#city').val(),
+        state: $('#state').val(),
+        country: $('#country').val(),
+        zip: $('#zip').val()
+      }
+
+      console.log(userInfo);
+      console.log(shippingInfo);
+
       console.log('Submitting order');
     }else if(cart.length !== 0){
       $('#order-info').slideDown(400)
@@ -55,15 +73,26 @@
     }
   })
 
-  // form initial error checking
-  $('#cvc, #expy').on('input', function () {
-    let curText = event.target.value
-    let newVal = parseInt(curText[curText.length - 1])
 
-    if(isNaN(newVal) || curText.length > 4){
-      event.target.value = curText.substring(0, curText.length - 1)
-    }
-  })
+  // form active error checking
+  checkNum('cvc', 4)
+  checkNum('expy', 4)
+  checkNum('expm', 2)
+  checkNum('cnum', 19)
+  checkNum('zip')
+
+  // Error checks for numbers at a specified length
+  function checkNum (tag, len) {
+    if(!len){len = Infinity}
+
+    $(`#${tag}`).on('input', function () {
+      let curText = event.target.value
+      let newVal = parseInt(curText[curText.length - 1])
+      if(isNaN(newVal) || curText.length > len){
+        event.target.value = curText.substring(0, curText.length - 1)
+      }
+    })
+  }
 
 
 }())
