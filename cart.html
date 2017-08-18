@@ -30,23 +30,34 @@
         <div id="order-info">
           <div class="row-label">Personal Information</div>
           <div class="input-row">
-            <input type="text" placeholder="First Name">
-            <input type="text" class="last" placeholder="Last Name">
+            <input id="fname" type="text" placeholder="First Name">
+            <input id="lname" type="text" class="last" placeholder="Last Name">
+          </div>
+          <div class="input-row">
+            <input id="email" type="text" placeholder="Email" class="last">
           </div>
           <div class="row-label">Shipping information</div>
           <div class="input-row">
-            <input type="text" placeholder="Address" style="flex-grow: 4">
-            <input type="text" placeholder="Apt, Suite, etc.. (optional)" class="last">
+            <input id="address" type="text" placeholder="Address" style="flex-grow: 4">
+            <input id="apt" type="text" placeholder="Apt, Suite, etc.. (optional)" class="last">
           </div>
           <div class="input-row">
-            <input type="text" placeholder="City" class="last">
+            <input id="city" type="text" placeholder="City" class="last">
           </div>
           <div class="input-row">
-            <input type="text" placeholder="State">
-            <input type="text" placeholder="Country">
-            <input type="text" placeholder="Zip" class="last">
+            <input id="state" type="text" placeholder="State">
+            <input id="country" type="text" placeholder="Country">
+            <input id="zip" type="text" placeholder="Zip" class="last">
           </div>
           <div class="row-label">Payment Information</div>
+          <div class="input-row">
+            <input id="cnum" type="text" placeholder="Card number" style="flex-grow: 10">
+            <input id="cvc" type="text" placeholder="CVC" class="last">
+          </div>
+          <div class="input-row">
+            <input id="expm" type="text" placeholder="Exp. Month">
+            <input id="expy" type="text" placeholder="Exp. Year" class="last">
+          </div>
         </div>
         <button class="checkout">Checkout</button>
       </div>

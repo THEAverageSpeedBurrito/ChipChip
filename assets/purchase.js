@@ -25,7 +25,7 @@
   // set proper shirt image
   $('img#thumbnail').attr('src', shirts[shirt].img)
   // page fade in effect
-  $('body').hide().fadeIn(350);
+  $('body').hide().delay(200).fadeIn(350);
 
   // select size
   $('.size-button').on('click', function() {

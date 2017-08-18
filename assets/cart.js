@@ -46,11 +46,23 @@
     if($('#order-info').is(':visible')){
       // TODO: Error checking on provided information
       // TODO: promise for payment completion
+      console.log('Submitting order');
     }else if(cart.length !== 0){
       $('#order-info').slideDown(400)
       $(event.target).text('submit order')
     }else{
       alert('There are no items in your cart')
+    }
+  })
+
+  // form initial error checking
+  $('#cvc').on('input', function () {
+    let curText = event.target.value
+
+    if(! parseInt(curText[curText.length - 1]) || curText.length > 4){
+      event.target.value = curText.substring(0, curText.length - 1)
+    }else{
+      console.log('number');
     }
   })
 
