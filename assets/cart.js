@@ -56,13 +56,12 @@
   })
 
   // form initial error checking
-  $('#cvc').on('input', function () {
+  $('#cvc, #expy').on('input', function () {
     let curText = event.target.value
+    let newVal = parseInt(curText[curText.length - 1])
 
-    if(! parseInt(curText[curText.length - 1]) || curText.length > 4){
+    if(isNaN(newVal) || curText.length > 4){
       event.target.value = curText.substring(0, curText.length - 1)
-    }else{
-      console.log('number');
     }
   })
 
