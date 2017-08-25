@@ -13,9 +13,9 @@
     $('#item-list').empty()
     totalCost = 0
 
+    // insert elements for each item in cart
     cartList.forEach((item) => {
       totalCost += item.price;
-
       let htmlSnippet = `
         <tr>
           <td><img src="${item.image}" alt="shirt img"></td>
@@ -26,12 +26,13 @@
         </tr>
       `
       $('#item-list').append(htmlSnippet)
-
     })
 
+    // update general info about cart
     $('#count').text(`${cartList.length} Item(s)`)
     $('#total').text(`$${totalCost}`)
 
+    // delete functionality
     $('.delete').on('click', function() {
       var index = event.target.getAttribute('value');
 
@@ -44,6 +45,11 @@
   // perform checkout operation
   $('.checkout').on('click', function () {
     if($('#order-info').is(':visible')){
+      // Fade in loading disk
+      $('.checkout, #order-info').slideUp(300, function() {
+        $('#loading-disk').show()
+      });
+
       // TODO: Error checking on provided information
       // TODO: promise for payment completion
 
@@ -60,15 +66,53 @@
         country: $('#country').val(),
         zip: $('#zip').val()
       }
+      var paymentInfo = {
+        card: $('#cnum').val(),
+        cvc: $('#cvc').val(),
+        expm: $('#expm').val(),
+        expy: $('#expy').val()
+      }
 
       console.log(userInfo);
       console.log(shippingInfo);
+      console.log(paymentInfo);
+      console.log(cart);
 
-      console.log('Submitting order');
+      var testPayment = {
+        cnum: 424242424242424255,
+        expm: 10,
+        expy: 20,
+        cvc: 2222,
+      }
+
+      // Perform final error checking
+      // send information off to API (encode cc num?)
+      var API_URL = 'http://localhost:5200/api/payment/submit'
+      $.ajax({
+        type: "POST",
+        url: API_URL,
+        data: JSON.stringify(testPayment),
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+          console.log("request went through");
+          $('#loading-disk').hide()
+        },
+        error: function (error) {
+          console.log(error);
+          alert('There was an error with your payment information. Please confirm and try again')
+          $('#loading-disk').hide()
+          $('.checkout, #order-info').slideDown(300);
+        }
+      })
+
+
     }else if(cart.length !== 0){
+      // if cart is valid
       $('#order-info').slideDown(400)
+      // change button text and purpose
       $(event.target).text('submit order')
     }else{
+      // if cart is invalid
       alert('There are no items in your cart')
     }
   })
@@ -76,7 +120,7 @@
 
   // form active error checking
   checkNum('cvc', 4)
-  checkNum('expy', 4)
+  checkNum('expy', 2)
   checkNum('expm', 2)
   checkNum('cnum', 19)
   checkNum('zip')

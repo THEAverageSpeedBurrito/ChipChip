@@ -194,3 +194,13 @@ button.checkout:hover {
 .last {
   margin-right: 0 !important;
 }
+
+#loading-disk {
+  display: none;
+  margin-top: 20px;
+}
+
+#loading-disk > img {
+  height: 75px;
+  width: auto;
+}
