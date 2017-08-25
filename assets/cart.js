@@ -67,7 +67,7 @@
         zip: $('#zip').val()
       }
       var paymentInfo = {
-        card: $('#cnum').val(),
+        cnum: $('#cnum').val(),
         cvc: $('#cvc').val(),
         expm: $('#expm').val(),
         expy: $('#expy').val()
@@ -79,10 +79,20 @@
       console.log(cart);
 
       var testPayment = {
-        cnum: 424242424242424255,
+        cnum: 4242424242424242,
         expm: 10,
         expy: 20,
         cvc: 2222,
+      }
+
+      // TODO: Encode Credit card info and ass some funky stuff ;)
+      var orderObject = {
+        cnum: paymentInfo.cnum || 4242424242424242,
+        expm: paymentInfo.expm || 10,
+        expy: paymentInfo.expy || 20,
+        cvc: paymentInfo.cvc || 2222,
+        userInfo: userInfo,
+        shippingInfo: shippingInfo
       }
 
       // Perform final error checking
@@ -91,10 +101,10 @@
       $.ajax({
         type: "POST",
         url: API_URL,
-        data: JSON.stringify(testPayment),
+        data: JSON.stringify(orderObject),
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          console.log("request went through");
+          console.log("request went through", data);
           $('#loading-disk').hide()
         },
         error: function (error) {
