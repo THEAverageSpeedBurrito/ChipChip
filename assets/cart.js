@@ -80,7 +80,6 @@
         return
       }
 
-
       // Fade in loading disk
       $('.checkout, #order-info').slideUp(300, function() {
         $('#loading-disk').show()
@@ -152,8 +151,10 @@
   // Checks to see that all required information is present
   function checkInput (object, keys) {
     for(let i = 0; i < keys.length; i++) {
-      if(object[keys[i]] === null){
-        console.log(keys[i]);
+      console.log('checking...');
+      if(object[keys[i]] === ''){
+        console.log('invalid');
+        // $(`#${keys[i]}`).addClass('invalid')
         return false
       }
     }
