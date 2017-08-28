@@ -182,7 +182,6 @@ button.checkout:hover {
   font-size: 1em;
   text-align: left;
   margin: 20px 0 10px 0;
-
 }
 
 .input-row {
@@ -193,6 +192,10 @@ button.checkout:hover {
 
 .last {
   margin-right: 0 !important;
+}
+
+.invalid {
+  border: 2px solid #BF0303;
 }
 
 #loading-disk {

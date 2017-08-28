@@ -45,13 +45,6 @@
   // perform checkout operation
   $('.checkout').on('click', function () {
     if($('#order-info').is(':visible')){
-      // Fade in loading disk
-      $('.checkout, #order-info').slideUp(300, function() {
-        $('#loading-disk').show()
-      });
-
-      // TODO: Error checking on provided information
-      // TODO: promise for payment completion
 
       var userInfo = {
         fname: $('#fname').val(),
@@ -73,30 +66,38 @@
         expy: $('#expy').val()
       }
 
-      console.log(userInfo);
-      console.log(shippingInfo);
-      console.log(paymentInfo);
-      console.log(cart);
-
-      var testPayment = {
-        cnum: 4242424242424242,
-        expm: 10,
-        expy: 20,
-        cvc: 2222,
+      // perform final error checking
+      if(!checkInput(userInfo, ['fname', 'lname', 'email'])){
+        alert('Some personal information is missing or incorrect')
+        return
+      }
+      if(!checkInput(shippingInfo, ['address', 'city', 'state', 'country', 'zip'])){
+        alert('Some shipping information is missing or incorrect')
+        return
+      }
+      if(!checkInput(paymentInfo, ['cnum', 'cvc', 'expm', 'expy'])){
+        alert('Some payment information is missing or incorrect')
+        return
       }
 
-      // TODO: Encode Credit card info and ass some funky stuff ;)
+
+      // Fade in loading disk
+      $('.checkout, #order-info').slideUp(300, function() {
+        $('#loading-disk').show()
+      });
+
+      // TODO: Encode Credit card info and add some funky stuff ;)
       var orderObject = {
-        cnum: paymentInfo.cnum || 4242424242424242,
-        expm: paymentInfo.expm || 10,
-        expy: paymentInfo.expy || 20,
-        cvc: paymentInfo.cvc || 2222,
+        cnum: paymentInfo.cnum,
+        expm: paymentInfo.expm,
+        expy: paymentInfo.expy,
+        cvc: paymentInfo.cvc,
         userInfo: userInfo,
         shippingInfo: shippingInfo
       }
 
-      // Perform final error checking
-      // send information off to API (encode cc num?)
+
+      // Make payment request
       var API_URL = 'http://localhost:5200/api/payment/submit'
       $.ajax({
         type: "POST",
@@ -104,7 +105,7 @@
         data: JSON.stringify(orderObject),
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          console.log("request went through", data);
+          console.log("Payment Successful", data);
           $('#loading-disk').hide()
         },
         error: function (error) {
@@ -146,6 +147,17 @@
         event.target.value = curText.substring(0, curText.length - 1)
       }
     })
+  }
+
+  // Checks to see that all required information is present
+  function checkInput (object, keys) {
+    for(let i = 0; i < keys.length; i++) {
+      if(object[keys[i]] === null){
+        console.log(keys[i]);
+        return false
+      }
+    }
+    return true
   }
 
 
