@@ -155,7 +155,6 @@
     for(let i = 0; i < keys.length; i++) {
       if(object[keys[i]] === ''){
         console.log('invalid');
-        // $(`#${keys[i]}`).addClass('invalid')
         return false
       }
     }
