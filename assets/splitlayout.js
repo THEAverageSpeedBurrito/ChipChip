@@ -118,4 +118,17 @@
 
 	init();
 
+	var hiddenString = '';
+
+	$(document).on('keydown', (e) => {
+		newKey = e.originalEvent.key
+		hiddenString += newKey
+		setTimeout(function(){
+			hiddenString = ''
+		}, 5000)
+		if(hiddenString === 'opensesame'){
+			window.location.href = './dashboard.html'
+		}
+	})
+
 })();
