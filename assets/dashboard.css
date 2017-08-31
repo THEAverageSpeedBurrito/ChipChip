@@ -57,7 +57,7 @@ input[type=text]:focus {
   padding: 10px;
 }
 
-.orders-container {
+#orders-container {
   width: 100%;
   height: auto;
   border-top: 1px solid black;
