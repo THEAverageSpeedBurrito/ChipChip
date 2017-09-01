@@ -1,6 +1,4 @@
 (function() {
-  var $actionBar = $('#action-bar')
-  var $itemCount = $('#item-count')
 
   // check for existing items in the cart;
   if(!localStorage.getItem('cart')){
@@ -10,9 +8,16 @@
   }else{
     // cart object exists
     var cart = JSON.parse(localStorage.getItem('cart'))
-    $itemCount.text = cart.length
+    $('.item-count').text(cart.length)
   }
 
+  $('.action-blob').on('click', function () {
+    $('body').fadeOut(350, function () {
+      window.location.href = './cart.html'
+    })
+  })
+
+  // navigate to purchase page
   $('.thumbnail').on('click', function() {
     var shirtName = $(this).siblings('div.title')[0].textContent
 

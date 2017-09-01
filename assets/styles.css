@@ -177,3 +177,44 @@ button.checkout:hover {
   background-color: #BF0303;
   color: white;
 }
+
+/* cart button styles */
+.action-blob {
+  position: fixed;
+  display: none;
+  z-index: 1000;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  bottom: 20px;
+  right: 20px;
+  background: #114B5F;
+  padding: 18px 0 0 18px;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+.action-blob > img{
+  width: 70%;
+  margin: 3px 0 0 3px;
+  height: auto;
+  transition: 0.2s;
+}
+.action-blob > img:hover {
+  transform: rotate(10deg);
+}
+
+.item-count {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 6px 0 0 10px;
+  background: #BF0303;
+  color: white;
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+}

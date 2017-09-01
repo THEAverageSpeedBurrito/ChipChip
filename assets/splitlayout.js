@@ -48,6 +48,7 @@
 		if(section){
 			setTimeout(function() {
 				$mainLogo.fadeOut(200)
+				$('.action-blob').fadeIn(300)
 				$('body').css('background', '#fff')
 				classie.add( splitlayout, 'open-left' );
 			}, 300)
@@ -69,6 +70,7 @@
 			$('body').css('background', '#fff')
 
 			classie.add( splitlayout, 'open-left' );
+			$('.action-blob').fadeIn(300)
 		} );
 
 		rightSide.querySelector( 'div.intro-content' ).addEventListener( eventtype, function( ev ) {
@@ -98,6 +100,7 @@
 
 				// $actionBar.hide(200)
 				$mainLogo.fadeIn(200)
+				$('.action-blob').fadeOut(300)
 
 				var dir = classie.has( ev.target, 'back-right' ) ? 'left' : 'right',
 					page = dir === 'right' ? pageRight : pageLeft;
