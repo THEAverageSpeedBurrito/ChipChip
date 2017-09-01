@@ -7,16 +7,18 @@
 
 function renderOrders() {
   $('#orders-container').empty()
-  
+
   var API_URL = 'http://localhost:5200'
 
   $.get(API_URL+'/api/orders/all', (orders) => {
     console.log(orders);
     let actionButtonText = 'Mark as Shipped'
+    let inlineStyle = ''
 
     orders.forEach((order) => {
       if(order.shipped){
         actionButtonText = 'Update Tracking'
+        inlineStyle = "background-color: #1E992E"
       }else {
         actionButtonText = 'Mark as Shipped'
       }
@@ -24,7 +26,7 @@ function renderOrders() {
       let orderObject = `<div class="order">
         <div class="order-actions">
           <div class="ordernum">Order#: ${order.randomid}</div>
-          <button class="addshipping">${actionButtonText}</button>
+          <button class="addshipping" style="${inlineStyle}">${actionButtonText}</button>
         </div>
         <div class="info">
           ${order.firstname} ${order.lastname}<br>

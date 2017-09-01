@@ -75,10 +75,10 @@
         alert('Some shipping information is missing or incorrect')
         return
       }
-      // if(!checkInput(paymentInfo, ['cnum', 'cvc', 'expm', 'expy'])){
-      //   alert('Some payment information is missing or incorrect')
-      //   return
-      // }
+      if(!checkInput(paymentInfo, ['cnum', 'cvc', 'expm', 'expy'])){
+        alert('Some payment information is missing or incorrect')
+        return
+      }
 
       // Fade in loading disk
       $('.checkout, #order-info').slideUp(300, function() {
