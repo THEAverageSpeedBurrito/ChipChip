@@ -18,9 +18,10 @@ function renderOrders() {
     orders.forEach((order) => {
       if(order.shipped){
         actionButtonText = 'Update Tracking'
-        inlineStyle = "background-color: #1E992E"
+        inlineStyle = 'background-color: #1E992E'
       }else {
         actionButtonText = 'Mark as Shipped'
+        inlineStyle = ''
       }
 
       let orderObject = `<div class="order">
