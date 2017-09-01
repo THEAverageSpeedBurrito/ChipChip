@@ -111,6 +111,7 @@
           localStorage.removeItem('cart')
 
           // TODO show customer randomid number and instructions to review order
+          // TODO redirect to main page or sup blog after completing order
         },
         error: function (error) {
           console.log(error);

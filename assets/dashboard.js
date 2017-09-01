@@ -6,6 +6,8 @@
 }())
 
 function renderOrders() {
+  $('#orders-container').empty()
+  
   var API_URL = 'http://localhost:5200'
 
   $.get(API_URL+'/api/orders/all', (orders) => {
@@ -79,6 +81,7 @@ function addListeners() {
           success: function (data) {
             console.log('Order updated');
             $lightbox.fadeOut(300)
+            renderOrders();
           },
           error: function (error) {
             console.log(error);
@@ -87,7 +90,6 @@ function addListeners() {
       }else{
         alert('Enter a tracking number or else!!!')
       }
-
 
       $('#save-order').off('click')
     })
