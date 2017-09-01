@@ -75,10 +75,10 @@
         alert('Some shipping information is missing or incorrect')
         return
       }
-      if(!checkInput(paymentInfo, ['cnum', 'cvc', 'expm', 'expy'])){
-        alert('Some payment information is missing or incorrect')
-        return
-      }
+      // if(!checkInput(paymentInfo, ['cnum', 'cvc', 'expm', 'expy'])){
+      //   alert('Some payment information is missing or incorrect')
+      //   return
+      // }
 
       // Fade in loading disk
       $('.checkout, #order-info').slideUp(300, function() {
@@ -87,10 +87,10 @@
 
       // TODO: Encode Credit card info and add some funky stuff ;)
       var orderObject = {
-        cnum: paymentInfo.cnum,
-        expm: paymentInfo.expm,
-        expy: paymentInfo.expy,
-        cvc: paymentInfo.cvc,
+        cnum: paymentInfo.cnum || 4242424242424242,
+        expm: paymentInfo.expm || 12,
+        expy: paymentInfo.expy || 19,
+        cvc: paymentInfo.cvc || 1424,
         userInfo: userInfo,
         shippingInfo: shippingInfo,
         itemlist: JSON.stringify(cart),
@@ -109,6 +109,12 @@
           console.log("Payment Successful", data);
           $('#loading-disk').hide()
           localStorage.removeItem('cart')
+
+          //fade in lightbox to display order number
+          $('#ordernumber').text(data)
+          $('#lightbox-wrapper').fadeIn(300)
+          //write order nubmer to localstorage in case they forget it ;)
+          localStorage.setItem('ordernum', data)
 
           // TODO show customer randomid number and instructions to review order
           // TODO redirect to main page or sup blog after completing order
