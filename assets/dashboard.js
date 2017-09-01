@@ -1,8 +1,60 @@
 (function() {
   console.log('Welcome to the admin dashboard');
-  var $lightbox = $('#lightbox-wrapper')
 
   renderOrders()
+
+}())
+
+function renderOrders() {
+  var API_URL = 'http://localhost:5200'
+
+  $.get(API_URL+'/api/orders/all', (orders) => {
+    console.log(orders);
+    let actionButtonText = 'Mark as Shipped'
+
+    orders.forEach((order) => {
+      if(order.shipped){
+        actionButtonText = 'Update Tracking'
+      }else {
+        actionButtonText = 'Mark as Shipped'
+      }
+
+      let orderObject = `<div class="order">
+        <div class="order-actions">
+          <div class="ordernum">Order#: ${order.randomid}</div>
+          <button class="addshipping">${actionButtonText}</button>
+        </div>
+        <div class="info">
+          ${order.firstname} ${order.lastname}<br>
+          ${order.address}<br>
+          ${order.city} ${order.state}, ${order.zip}<br>
+          ${order.email}
+        </div>
+        <div class="order-items">
+          <ul id="${order.randomid}">
+          </ul>
+        </div>
+      </div>`
+
+      $('#orders-container').append(orderObject)
+
+      orderItems = JSON.parse(order.itemlist)
+      orderItems.forEach((item) => {
+        $(`#${order.randomid}`).append(`<li>${item.name} - ${item.size}</li>`)
+      })
+
+    })
+
+    // Add event listeners to appended objects
+    addListeners()
+  })
+}
+
+// place all listeners here to be added synchronously after orders are rendered
+function addListeners() {
+  console.log('Adding listeners');
+
+  var $lightbox = $('#lightbox-wrapper')
 
   // update shipping information
   $('.addshipping').on('click', (e) => {
@@ -13,6 +65,7 @@
     // save order
     $('#save-order').on('click', (event) => {
       var trackingNum = $('#trknum').val()
+      $('#trknum').val('')
 
       if(trackingNum){
         $.ajax({
@@ -42,41 +95,8 @@
     // exit without saving
     $('#exit').on('click', (event) => {
       $lightbox.fadeOut(300)
+      $('#trknum').val('')
       $('#exit').off('click')
-    })
-
-  })
-}())
-
-function renderOrders() {
-  var API_URL = 'http://localhost:5200'
-
-  $.get(API_URL+'/api/orders/all', (orders) => {
-    console.log(orders);
-    orders.forEach((order) => {
-      let orderObject = `<div class="order">
-        <div class="order-actions">
-          <div class="ordernum">Order#: ${order.randomid}</div>
-          <button class="addshipping">Mark as Shipped</button>
-        </div>
-        <div class="info">
-          ${order.firstname} ${order.lastname}<br>
-          ${order.address}<br>
-          ${order.city} ${order.state}, ${order.zip}<br>
-          ${order.email}
-        </div>
-        <div class="order-items">
-          <ul id="${order.randomid}">
-          </ul>
-        </div>
-      </div>`
-
-      $('#orders-container').append(orderObject)
-
-      orderItems = JSON.parse(order.itemlist)
-      orderItems.forEach((item) => {
-        $(`#${order.randomid}`).append(`<li>${item.name} - ${item.size}</li>`)
-      })
     })
   })
 }

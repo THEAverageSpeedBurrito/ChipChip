@@ -108,6 +108,9 @@
         success: function (data) {
           console.log("Payment Successful", data);
           $('#loading-disk').hide()
+          localStorage.removeItem('cart')
+
+          // TODO show customer randomid number and instructions to review order
         },
         error: function (error) {
           console.log(error);
