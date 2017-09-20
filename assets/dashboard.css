@@ -57,7 +57,7 @@ input[type=text]:focus {
   padding: 10px;
 }
 
-#orders-container {
+.container {
   width: 100%;
   height: auto;
   border-top: 1px solid black;
@@ -105,6 +105,14 @@ input[type=text]:focus {
   min-height: 100px;
   margin: 10px;
   border: 2px solid #EAE6E5;
+}
+
+#merch {
+  display: none;
+}
+
+#orders {
+  display: none
 }
 
 /*  Lightbox styles */

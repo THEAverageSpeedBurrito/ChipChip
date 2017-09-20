@@ -3,6 +3,12 @@
 
   renderOrders()
 
+  $('#orders-button, #merch-button').on('click', (event) => {
+    $('#orders, #merch').hide();
+    let id = event.target.id.split('-')[0]
+    $(`#${id}`).show()
+  })
+
 }())
 
 function renderOrders() {
