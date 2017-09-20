@@ -2,6 +2,7 @@
   console.log('Welcome to the admin dashboard');
 
   $('#orders-button, #merch-button').on('click', (event) => {
+    console.clear()
     $('#orders, #merch').hide();
     let id = event.target.id.split('-')[0]
     $(`#${id}`).show()

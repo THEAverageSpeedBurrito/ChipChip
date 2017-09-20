@@ -1,16 +1,5 @@
 
 (function() {
-  var shirts = {
-    'The Man': {
-      img: './assets/shirts/theman.jpg'
-    },
-    'Priceless Shirt': {
-      img: './assets/shirts/pricelessshirt.jpg'
-    },
-    '3d Heaven': {
-      img: './assets/shirts/3dheaven.jpg'
-    }
-  }
 
   // Get or establish cart
   var cart = JSON.parse(localStorage.getItem('cart')) || []
@@ -23,9 +12,14 @@
   console.log(shirt);
 
   // set proper shirt image
-  $('img#thumbnail').attr('src', shirts[shirt].img)
-  // page fade in effect
-  $('body').hide().delay(200).fadeIn(350);
+
+  var API_URL = 'http://localhost:5200'
+  var shirtData
+
+  $.get(API_URL + `/api/merch/${shirt}`, (response) => {
+    shirtData = response[0]
+    $('img#thumbnail').attr('src', `./assets/shirts/${response[0].imgUrl}.jpg`)
+  })
 
   // select size
   $('.size-button').on('click', function() {
@@ -38,13 +32,9 @@
     if($('.active').length > 0){
       var size = $('.size-button.active').text();
 
-      var newItem = {
-        name: shirt,
-        size: size,
-        price: 20,
-        image: shirts[shirt].img
-      }
-      addToCart(newItem)
+      shirtData['size'] = size
+
+      addToCart(shirtData)
       $('.size-button').removeClass('active')
     }else{
       alert('Please select a size')
