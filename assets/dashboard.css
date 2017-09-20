@@ -115,7 +115,37 @@ input[type=text]:focus {
   display: none
 }
 
+/* merch item styles */
 
+.merch-item {
+  display: flex;
+  max-width: 200px;
+  flex-wrap: wrap;
+  margin: 20px;
+  font-size: 14px;
+}
+
+.thumbnail {
+  flex-basis: 100%;
+  max-width: 200px;
+  /*border: 1px solid blue;*/
+  cursor: pointer;
+}
+
+.thumbnail > img {
+  max-width: 100%;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  flex-basis: 100%;
+}
+
+.cost {
+  flex-basis: 100%;
+  color: #BF0303;
+}
 
 
 

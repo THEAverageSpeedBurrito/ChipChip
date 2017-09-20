@@ -7,6 +7,8 @@
     $(`#${id}`).show()
     if(id === 'orders'){
       renderOrders()
+    }else if(id === 'merch'){
+      renderMerch()
     }
   })
 
@@ -59,6 +61,17 @@ function renderOrders() {
 
     // Add event listeners to appended objects
     addListeners()
+  })
+}
+
+function renderMerch() {
+  var $merchContainer = $('#merch-container')
+  $merchContainer.empty()
+
+  var API_URL = 'http://localhost:5200'
+
+  $.get(API_URL+'/api/merch', (merch) => {
+    console.log(merch);
   })
 }
 
