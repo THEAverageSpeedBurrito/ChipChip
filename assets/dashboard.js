@@ -1,12 +1,13 @@
 (function() {
   console.log('Welcome to the admin dashboard');
 
-  renderOrders()
-
   $('#orders-button, #merch-button').on('click', (event) => {
     $('#orders, #merch').hide();
     let id = event.target.id.split('-')[0]
     $(`#${id}`).show()
+    if(id === 'orders'){
+      renderOrders()
+    }
   })
 
 }())
@@ -84,7 +85,7 @@ function addListeners() {
           url: 'http://localhost:5200/api/orders/actions/shipped',
           data: JSON.stringify({
             orderNum: ordernum,
-            trackingNum: $('#trknum').val()
+            trackingNum: trackingNum
           }),
           contentType: "application/json; charset=utf-8",
           success: function (data) {
