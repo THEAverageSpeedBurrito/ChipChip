@@ -90,13 +90,19 @@ function renderMerch() {
       var shirtName = $(this).siblings('div.title')[0].textContent
       var cost = $(this).siblings('div.cost')[0].textContent.replace('$', '')
       var itemid = $(this).children()[0].alt
-      console.log(itemid);
       var image = $(this).children()[0].src
+      $('#edit-preview').attr('src', image)
+
+      // change src to be user friendly
+      image = image.split('/')
+      image = image[image.length - 1].replace('.jpg', ' ')
 
       $('#merch-editor').slideDown(200)
-      $('#edit-preview').attr('src', image)
+
+      // set values of input fields
       $('#edit-name').val(shirtName)
       $('#edit-cost').val(cost)
+      $('#edit-image').val(image)
 
       $('#save-item').on('click', (event) => {
 
@@ -109,17 +115,20 @@ function renderMerch() {
             itemid: itemid,
             name: $('#edit-name').val(),
             cost: $('#edit-cost').val().replace('$', ' '),
+            imgUrl: $('#edit-image').val()
           }),
           contentType: "application/json; charset=utf-8",
           success: function (data) {
-            console.log(data, shirtName, itemid);
             $('#merch-editor').slideUp(200)
+            renderMerch()
           },
           error: function (error) {
             console.log(error);
             alert('There was an error conencting to the API')
+            $('#merch-editor').slideUp(200)
           }
         })
+        $('#save-item').off('click')
       })
     })
   })
