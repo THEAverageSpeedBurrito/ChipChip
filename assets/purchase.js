@@ -13,7 +13,7 @@
 
   // set proper shirt image
 
-  var API_URL = 'http://localhost:5200'
+  var API_URL = 'https://chipchip-server.herokuapp.com'
   var shirtData
 
   $.get(API_URL + `/api/merch/${shirt}`, (response) => {

@@ -15,7 +15,7 @@
 
     // insert elements for each item in cart
     cartList.forEach((item) => {
-      totalCost += item.price;
+      totalCost += item.cost;
       let htmlSnippet = `
         <tr>
           <td><img src="./assets/shirts/${item.imgUrl}.jpg" alt="shirt img"></td>
@@ -87,10 +87,10 @@
 
       // TODO: Encode Credit card info and add some funky stuff ;)
       var orderObject = {
-        cnum: paymentInfo.cnum || 4242424242424242,
-        expm: paymentInfo.expm || 12,
-        expy: paymentInfo.expy || 19,
-        cvc: paymentInfo.cvc || 1424,
+        cnum: paymentInfo.cnum,
+        expm: paymentInfo.expm,
+        expy: paymentInfo.expy,
+        cvc: paymentInfo.cvc,
         userInfo: userInfo,
         shippingInfo: shippingInfo,
         itemlist: JSON.stringify(cart),
@@ -99,7 +99,7 @@
 
 
       // Make payment request
-      var API_URL = 'http://localhost:5200/api/payment/submit'
+      var API_URL = 'https://chipchip-server.herokuapp.com/api/payment/submit'
       $.ajax({
         type: "POST",
         url: API_URL,

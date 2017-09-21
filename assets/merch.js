@@ -27,7 +27,7 @@ function renderMerch () {
   $merchList = $('#merch-list')
   $merchList.empty()
 
-  var API_URL = 'http://localhost:5200'
+  var API_URL = 'https://chipchip-server.herokuapp.com'
 
   $.get(API_URL+'/api/merch', (merch) => {
     merch.forEach((item) => {

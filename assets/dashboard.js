@@ -18,7 +18,7 @@
 function renderOrders() {
   $('#orders-container').empty()
 
-  var API_URL = 'http://localhost:5200'
+  var API_URL = 'https://chipchip-server.herokuapp.com'
 
   $.get(API_URL+'/api/orders/all', (orders) => {
     console.log(orders);
@@ -69,7 +69,7 @@ function renderMerch() {
   var $merchContainer = $('#merch-container')
   $merchContainer.empty()
 
-  var API_URL = 'http://localhost:5200'
+  var API_URL = 'https://chipchip-server.herokuapp.com'
 
   $.get(API_URL+'/api/merch', (merch) => {
     console.log(merch);
