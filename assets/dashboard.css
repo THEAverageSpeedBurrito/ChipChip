@@ -3,6 +3,12 @@
   box-sizing: border-box;
 }
 
+h2 {
+  display: inline;
+  float: left;
+  margin: 0 0 10px 0;
+}
+
 button {
   min-width: 75px;
   height: 30px;
@@ -53,7 +59,7 @@ input[type=text]:focus {
 .wrapper {
   width: 100%;
   max-width: 750px;
-  margin: 10px auto;
+  margin: 30px auto;
   padding: 10px;
 }
 
@@ -169,6 +175,15 @@ input[type=text]:focus {
 .options > button {
   width: 100%;
   margin-top: 20px;
+}
+
+#new-merch {
+  width: auto;
+  float: right;
+  display: inline;
+  background: transparent;
+  color: #BF0303;
+  border: 2px solid #BF0303;
 }
 
 /*  Lightbox styles */

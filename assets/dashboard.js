@@ -13,6 +13,39 @@
     }
   })
 
+  $('#new-merch').on('click', (event) => {
+    $('#edit-name').val('')
+    $('#edit-cost').val('')
+    $('#edit-image').val('')
+
+    $('#merch-editor').slideDown(200)
+
+    $('#save-item').on('click', (event) => {
+      var API_URL = 'https://chipchip-server.herokuapp.com'
+
+      $.ajax({
+        type: "POST",
+        url: API_URL + '/api/merch',
+        data: JSON.stringify({
+          name: $('#edit-name').val(),
+          cost: $('#edit-cost').val().replace('$', ' '),
+          imgUrl: $('#edit-image').val()
+        }),
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+          $('#merch-editor').slideUp(200)
+          renderMerch()
+        },
+        error: function (error) {
+          console.log(error);
+          alert('There was an error conencting to the API')
+          $('#merch-editor').slideUp(200)
+        }
+      })
+      $('#save-item').off('click')
+    })
+  })
+
 }())
 
 function renderOrders() {
@@ -95,7 +128,7 @@ function renderMerch() {
 
       // change src to be user friendly
       image = image.split('/')
-      image = image[image.length - 1].replace('.jpg', ' ')
+      image = image[image.length - 1].replace('.jpg', '')
 
       $('#merch-editor').slideDown(200)
 
