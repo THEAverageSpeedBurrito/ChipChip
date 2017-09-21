@@ -65,6 +65,7 @@ function renderOrders() {
   })
 }
 
+// render mech in the merch-container
 function renderMerch() {
   var $merchContainer = $('#merch-container')
   $merchContainer.empty()
@@ -73,6 +74,54 @@ function renderMerch() {
 
   $.get(API_URL+'/api/merch', (merch) => {
     console.log(merch);
+    merch.forEach((item) => {
+      var merchObject = `
+      <div class="merch-item">
+        <div class="thumbnail"><img src="assets/shirts/${item.imgUrl}.jpg" alt="${item.id}"></div>
+        <div class="title">${item.name}</div>
+        <div class="cost">$${item.cost}</div>
+      </div>
+      `
+
+      $merchContainer.append(merchObject)
+    })
+
+    $('.thumbnail').on('click', function() {
+      var shirtName = $(this).siblings('div.title')[0].textContent
+      var cost = $(this).siblings('div.cost')[0].textContent.replace('$', '')
+      var itemid = $(this).children()[0].alt
+      console.log(itemid);
+      var image = $(this).children()[0].src
+
+      $('#merch-editor').slideDown(200)
+      $('#edit-preview').attr('src', image)
+      $('#edit-name').val(shirtName)
+      $('#edit-cost').val(cost)
+
+      $('#save-item').on('click', (event) => {
+
+        var API_URL = 'https://chipchip-server.herokuapp.com'
+
+        $.ajax({
+          type: "POST",
+          url: API_URL + '/api/merch/update',
+          data: JSON.stringify({
+            itemid: itemid,
+            name: $('#edit-name').val(),
+            cost: $('#edit-cost').val().replace('$', ' '),
+          }),
+          contentType: "application/json; charset=utf-8",
+          success: function (data) {
+            console.log(data, shirtName, itemid);
+            $('#merch-editor').slideUp(200)
+          },
+          error: function (error) {
+            console.log(error);
+            alert('There was an error conencting to the API')
+          }
+        })
+      })
+    })
   })
 }
 
