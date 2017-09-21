@@ -96,7 +96,7 @@ function addListeners() {
       if(trackingNum){
         $.ajax({
           type: "POST",
-          url: 'http://localhost:5200/api/orders/actions/shipped',
+          url: 'https://chipchip-server.herokuapp.com/api/orders/actions/shipped',
           data: JSON.stringify({
             orderNum: ordernum,
             trackingNum: trackingNum
