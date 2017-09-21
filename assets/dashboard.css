@@ -174,7 +174,15 @@ input[type=text]:focus {
 
 .options > button {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
+  height: 35px;
+}
+
+#delete-item {
+  background: transparent;
+  border: 2px solid #BF0303;
+  color: #BF0303;
+  width: 100px;
 }
 
 #new-merch {

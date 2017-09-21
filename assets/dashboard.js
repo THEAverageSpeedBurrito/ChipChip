@@ -163,6 +163,30 @@ function renderMerch() {
         })
         $('#save-item').off('click')
       })
+
+      $('#delete-item').on('click', (event) => {
+        var itemid = $(this).children()[0].alt
+
+        if(prompt('Are you sure you want to delete this item (y/n)?') === 'y'){
+          $.ajax({
+            type: "DELETE",
+            url: API_URL + '/api/merch',
+            data: JSON.stringify({
+              itemid: itemid,
+            }),
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+              $('#merch-editor').slideUp(200)
+              renderMerch()
+            },
+            error: function (error) {
+              console.log(error);
+              alert('There was an error conencting to the API')
+              $('#merch-editor').slideUp(200)
+            }
+          })
+        }
+      })
     })
   })
 }
