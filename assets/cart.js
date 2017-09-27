@@ -18,7 +18,7 @@
       totalCost += item.cost;
       let htmlSnippet = `
         <tr>
-          <td><img src="./assets/shirts/${item.imgUrl}.jpg" alt="shirt img"></td>
+          <td><img src="${item.imgUrl}" alt="shirt img"></td>
           <td>${item.name}</td>
           <td>${item.size}</td>
           <td>$${item.cost}</td>

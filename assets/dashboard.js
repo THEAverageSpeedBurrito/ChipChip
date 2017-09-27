@@ -16,20 +16,34 @@
   $('#new-merch').on('click', (event) => {
     $('#edit-name').val('')
     $('#edit-cost').val('')
-    $('#edit-image').val('')
+
+    var imageUrl
+
+    // handle change of image url
+    $('#image-select').on('change', (event) => {
+      var image = event.target.files[0]
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#edit-preview').attr('src', e.target.result)
+        imageUrl = e.target.result
+      };
+      reader.readAsDataURL(image);
+      $('#image-select').off('click')
+    })
 
     $('#merch-editor').slideDown(200)
 
+    // save merch item
     $('#save-item').on('click', (event) => {
       var API_URL = 'https://chipchip-server.herokuapp.com'
-
+      console.log(imageUrl);
       $.ajax({
         type: "POST",
         url: API_URL + '/api/merch',
         data: JSON.stringify({
           name: $('#edit-name').val(),
           cost: $('#edit-cost').val().replace('$', ' '),
-          imgUrl: $('#edit-image').val()
+          imgUrl: imageUrl
         }),
         contentType: "application/json; charset=utf-8",
         success: function (data) {
@@ -110,7 +124,7 @@ function renderMerch() {
     merch.forEach((item) => {
       var merchObject = `
       <div class="merch-item">
-        <div class="thumbnail"><img src="assets/shirts/${item.imgUrl}.jpg" alt="${item.id}"></div>
+        <div class="thumbnail"><img src="${item.imgUrl}" alt="${item.id}"></div>
         <div class="title">${item.name}</div>
         <div class="cost">$${item.cost}</div>
       </div>
@@ -119,6 +133,7 @@ function renderMerch() {
       $merchContainer.append(merchObject)
     })
 
+    // update merch item listener
     $('.thumbnail').on('click', function() {
       var shirtName = $(this).siblings('div.title')[0].textContent
       var cost = $(this).siblings('div.cost')[0].textContent.replace('$', '')
@@ -126,16 +141,26 @@ function renderMerch() {
       var image = $(this).children()[0].src
       $('#edit-preview').attr('src', image)
 
-      // change src to be user friendly
-      image = image.split('/')
-      image = image[image.length - 1].replace('.jpg', '')
-
       $('#merch-editor').slideDown(200)
 
       // set values of input fields
       $('#edit-name').val(shirtName)
       $('#edit-cost').val(cost)
-      $('#edit-image').val(image)
+      $('#image-select').attr('src', image)
+
+      var imageUrl
+
+      // handle change of image url
+      $('#image-select').on('change', (event) => {
+        var image = event.target.files[0]
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#edit-preview').attr('src', e.target.result)
+          imageUrl = e.target.result
+        };
+        reader.readAsDataURL(image);
+        $('#image-select').off('click')
+      })
 
       $('#save-item').on('click', (event) => {
 
@@ -147,8 +172,8 @@ function renderMerch() {
           data: JSON.stringify({
             itemid: itemid,
             name: $('#edit-name').val(),
-            cost: $('#edit-cost').val().replace('$', ' '),
-            imgUrl: $('#edit-image').val()
+            cost: $('#edit-cost').val().replace('$', ''),
+            imgUrl: imageUrl
           }),
           contentType: "application/json; charset=utf-8",
           success: function (data) {

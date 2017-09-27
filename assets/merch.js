@@ -33,7 +33,7 @@ function renderMerch () {
     merch.forEach((item) => {
       var merchObject = `
       <div class="merch-item">
-        <div class="thumbnail"><img src="assets/shirts/${item.imgUrl}.jpg" alt=""></div>
+        <div class="thumbnail"><img src="${item.imgUrl}" alt=""></div>
         <div class="title">${item.name}</div>
         <div class="cost">$${item.cost}</div>
       </div>

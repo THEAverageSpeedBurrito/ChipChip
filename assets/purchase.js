@@ -18,7 +18,7 @@
 
   $.get(API_URL + `/api/merch/${shirt}`, (response) => {
     shirtData = response[0]
-    $('img#thumbnail').attr('src', `./assets/shirts/${response[0].imgUrl}.jpg`)
+    $('img#thumbnail').attr('src', shirtData.imgUrl)
   })
 
   // select size
