@@ -63,6 +63,7 @@ h1.black {
 	background: rgba(0,0,0,0.3);
 }
 
+/* home split section styles */
 .side-left {
 	left: 0;
 	background: #2A2D34;
@@ -71,7 +72,7 @@ h1.black {
 
 .side-right {
 	right: 0;
-	background: #fff;
+	background: #D7FDEC;
 	color: #fff;
 }
 

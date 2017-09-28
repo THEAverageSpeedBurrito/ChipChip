@@ -148,22 +148,28 @@
 
 			if(x > borderleft + 125){
 				$('.full-logo-section').css({
-					'transform': 'rotate3d(0, 0.5, 0.1, 20deg) translate(-5px, -5px)',
-					'box-shadow': '5px 1px 8px 2px rgba(0, 0, 0, 0.2)'
+					'transform': 'rotate3d(0, 0.5, 0.1, 21deg) translate(-5px, -5px)',
+					'box-shadow': '4px 1px 10px 2px rgba(0, 0, 0, 0.25)',
+					'border-left': '0px solid #D7FDEC',
+					'border-right': '20px solid #ffffff',
 				})
 			}else if(x < borderleft + 125){
 				$('.full-logo-section').css({
-					'transform': 'rotate3d(0, 0.5, 0.1, -20deg) translate(5px, -5px)',
-					'box-shadow': '-6px 1px 8px 2px rgba(0, 0, 0, 0.5)'
+					'transform': 'rotate3d(0, 0.5, 0.1, -21deg) translate(5px, -5px)',
+					'box-shadow': '-5px 1px 10px 2px rgba(0, 0, 0, 0.35)',
+					'border-left': '20px solid #D7FDEC',
+					'border-right': '0px solid #ffffff',
 				})
 			}
 		})
 
 		// set back to normal
-		$(this).on('mouseleave', (e) => {
+		$('.full-logo-section').on('mouseleave', (e) => {
 			$('.full-logo-section').css({
 				'transform': 'none',
-				'box-shadow': 'none'
+				'box-shadow': 'none',
+				'border': 'none',
+				'border-left': '10px solid #D7FDEC'
 			})
 		})
 	})
