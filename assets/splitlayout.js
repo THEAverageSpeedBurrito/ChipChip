@@ -49,7 +49,10 @@
 			setTimeout(function() {
 				$mainLogo.fadeOut(200)
 				$('.action-blob').fadeIn(300)
-				$('body').css('background', '#fff')
+				$('body').css({
+					background: 'url("assets/whirlpool.png")',
+					'background-repeat': 'repeat'
+				})
 				classie.add( splitlayout, 'open-left' );
 			}, 300)
 
@@ -67,7 +70,6 @@
 
 			console.log('triggering left side');
 			$mainLogo.fadeOut(200)
-			$('body').css('background', '#fff')
 
 			classie.add( splitlayout, 'open-left' );
 			$('.action-blob').fadeIn(300)
@@ -77,10 +79,8 @@
 			reset();
 
 			// Right side actions
-
 			console.log('triggering right side');
 			$mainLogo.fadeOut(200)
-			$('body').css('background', '#04080F')
 
 			classie.add( splitlayout, 'open-right' );
 		} );
@@ -109,8 +109,8 @@
 				page.addEventListener( transEndEventName, onEndTransFn );
 			};
 
-		splitlayout.querySelector( 'a.back-left' ).addEventListener( eventtype, backToIntro );
-		splitlayout.querySelector( 'a.back-right' ).addEventListener( eventtype, backToIntro );
+		splitlayout.querySelector( 'img.back-left' ).addEventListener( eventtype, backToIntro );
+		splitlayout.querySelector( 'img.back-right' ).addEventListener( eventtype, backToIntro );
 	}
 
 	function reset() {
@@ -139,12 +139,10 @@
 		var target = $(event.target)
 		var borderleft = target[0].offsetLeft;
 		var borderright = borderleft + 250
-		console.log('contraints', borderleft, borderright);
 
 		$(event.target).mousemove((e) => {
 			var x = e.pageX
 			var y = e.pageY
-			console.log(x);
 
 			if(x > borderleft + 125){
 				$('.full-logo-section').css({

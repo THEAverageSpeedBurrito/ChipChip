@@ -25,11 +25,11 @@
 function renderMerch () {
   console.log('Rendering Merch');
   $merchList = $('#merch-list')
-  $merchList.empty()
 
   var API_URL = 'https://chipchip-server.herokuapp.com'
 
   $.get(API_URL+'/api/merch', (merch) => {
+    $merchList.empty()
     merch.forEach((item) => {
       var merchObject = `
       <div class="merch-item">

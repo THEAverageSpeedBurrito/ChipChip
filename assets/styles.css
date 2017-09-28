@@ -127,6 +127,9 @@ img.main-logo {
   flex-wrap: wrap;
   margin: 20px;
   font-size: 14px;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 1px 7px 0px rgba(0, 0, 0, 0.3);
 }
 
 .thumbnail {

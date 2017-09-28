@@ -67,13 +67,15 @@ h1.black {
 .side-left {
 	left: 0;
 	background: #2A2D34;
-	color: #fff;
+	box-shadow: -1px 0 30px 3px rgba(0, 0, 0, 0.6);
+	border-left: 3px solid gray;
 }
 
 .side-right {
 	right: 0;
 	background: #D7FDEC;
-	color: #fff;
+	box-shadow: -1px 0 30px 3px rgba(0, 0, 0, 0.4);
+	border-right: 3px solid #89A297;
 }
 
 /* Intro content, profile image and name, back button */
@@ -160,6 +162,7 @@ h1.black {
 	left: 12.5%;
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
+	background: white;
 }
 
 .back-right {
@@ -167,6 +170,19 @@ h1.black {
 	-webkit-transform: translateX(50%);
 	transform: translateX(50%);
 	color: #fff;
+	background: white;
+}
+img.back-right {
+	position: relative;
+	background: none;
+	left: -10px;
+	top: 5px;
+}
+img.back-left {
+	position: relative;
+	background: none;
+	left: 10px;
+	top: 5px;
 }
 
 .open-right .back-left,
@@ -196,7 +212,7 @@ h1.black {
 
 .page-right {
 	left: 25%;
-	background: #04080F;
+	background: transparent;
 	color: #97a8b2;
 	-webkit-transform: translateX(100%);
 	transform: translateX(100%);
@@ -204,12 +220,12 @@ h1.black {
 
 /*  Page right background */
 .splitlayout.open-right {
-	background: #04080F;
+	background: transparent;
 }
 
 .page-left {
 	left: 0;
-	background: #fff;
+	background: transparent;
 	color: black;
 	text-align: right;
 	-webkit-transform: translateX(-100%);
@@ -218,7 +234,7 @@ h1.black {
 
 /* Page left background */
 .splitlayout.open-left {
-	background: #fff;
+	background: transparent;
 }
 
 /* Inner page content */
