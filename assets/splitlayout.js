@@ -134,4 +134,37 @@
 		}
 	})
 
+	// logo hover effects
+	$('.full-logo-section').on('mouseenter', (event) => {
+		var target = $(event.target)
+		var borderleft = target[0].offsetLeft;
+		var borderright = borderleft + 250
+		console.log('contraints', borderleft, borderright);
+
+		$(event.target).mousemove((e) => {
+			var x = e.pageX
+			var y = e.pageY
+			console.log(x);
+
+			if(x > borderleft + 125){
+				$('.full-logo-section').css({
+					'transform': 'rotate3d(0, 0.5, 0.1, 20deg) translate(-5px, -5px)',
+					'box-shadow': '5px 1px 8px 2px rgba(0, 0, 0, 0.2)'
+				})
+			}else if(x < borderleft + 125){
+				$('.full-logo-section').css({
+					'transform': 'rotate3d(0, 0.5, 0.1, -20deg) translate(5px, -5px)',
+					'box-shadow': '-6px 1px 8px 2px rgba(0, 0, 0, 0.5)'
+				})
+			}
+		})
+
+		// set back to normal
+		$(this).on('mouseleave', (e) => {
+			$('.full-logo-section').css({
+				'transform': 'none',
+				'box-shadow': 'none'
+			})
+		})
+	})
 })();
